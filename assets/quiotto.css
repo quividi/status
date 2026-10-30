@@ -1,7 +1,7 @@
 /* Quiotto look for the Upptime status page: tokens from vidiflow.css (VidiCenter repo).
    Replaces the built-in theme (themeUrl), so it sets Upptime's color variables.
    Upptime loads this file before its global.css: rules that compete with global.css
-   start with `html` to win on specificity. Nav overrides use !important, simpler than
+   start with `html` to win on specificity. Nav and footer overrides use !important, simpler than
    out-specifying Svelte's scoped classes. */
 
 @font-face {
@@ -71,6 +71,13 @@
 
 html body {
   font-family: 'Open Sans', system-ui, -apple-system, sans-serif;
+  padding-bottom: 1rem;
+}
+
+/* Room for 90 bars of 6px + 2px gaps (718px) in a card: + 2 x 1.25rem card padding,
+   4px card borders, 2 x 2rem container padding = about 826px (Upptime's default is 800). */
+html .container {
+  max-width: 830px;
 }
 
 html h1, html h2, html h3, html h4 {
@@ -83,6 +90,7 @@ html h3 {
 }
 
 html article {
+  padding: 0.75rem 1.25rem;
   border-radius: var(--q-r-md);
   box-shadow: var(--q-shadow-xs);
 }
@@ -104,33 +112,23 @@ section.live-status article > div:not(.q-bars) {
 .q-bars {
   position: relative;
   z-index: 1;
-  margin-top: 0.75rem;
+  margin-top: 0.5rem;
 }
 
 .q-bars-row {
-  display: flex;
-  gap: 2px;
-  height: 28px;
-}
-
-.q-bar {
-  flex: 1;
-  border-radius: 2px;
-}
-
-@media (max-width: 600px) {
-  .q-bars-row { gap: 1px; }
-  .q-bar { border-radius: 1px; }
+  display: block;
+  width: 100%;
+  height: 22px;
 }
 
 .q-bar:hover {
   opacity: 0.7;
 }
 
-.q-bar-up { background: var(--q-positive); }
-.q-bar-partial { background: var(--q-warning); }
-.q-bar-down { background: var(--q-negative); }
-.q-bar-none { background: var(--q-fg-faint); }
+.q-bar-up { fill: var(--q-positive); }
+.q-bar-partial { fill: var(--q-warning); }
+.q-bar-down { fill: var(--q-negative); }
+.q-bar-none { fill: var(--q-fg-faint); }
 
 .q-bars-legend {
   display: flex;
@@ -147,6 +145,7 @@ html .tag {
 
 nav {
   color: var(--q-on-dark);
+  margin-bottom: 1.25rem !important;
 }
 
 /* Upptime's nav is weight 300, too thin on the dark bar */
@@ -184,4 +183,10 @@ nav .logo::after {
 
 footer {
   color: var(--q-fg-3);
+  margin-top: 1.25rem !important;
+  font-size: 0.8rem;
+}
+
+footer p {
+  margin: 0;
 }
