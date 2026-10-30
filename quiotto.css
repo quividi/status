@@ -152,7 +152,7 @@ nav {
 /* Upptime's nav is weight 300, too thin on the dark bar */
 nav a {
   font-weight: 500;
-  padding: 1.25rem 1rem !important;
+  padding: 0.9rem 1rem !important;
 }
 
 nav a:hover {
@@ -160,7 +160,7 @@ nav a:hover {
 }
 
 nav .logo {
-  padding: 0.75rem 0 !important;
+  padding: 0.5rem 0 !important;
   margin-right: 1rem !important;
 }
 
