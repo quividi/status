@@ -49,7 +49,6 @@ status-website:
     - src: https://status.quividi.com/uptime-bars.js
       async: true
   name: Quividi Status
-  introTitle: "Quividi service status"
   introMessage: Current availability of VidiCenter, the VidiReports API, the Cloud API, Quiotto and the MCP server, and our updates during incidents and maintenance.
   navbar:
     - title: Status
