@@ -27,12 +27,14 @@ assignees:
 status-website:
   # Needs the OVH record: status CNAME quividi.github.io.
   cname: status.quividi.com
-  # Everything below assets/ is served from the site root; nothing loads from our servers.
-  themeUrl: /quiotto.css
-  logoUrl: /quividi_white.png
+  # Files from assets/, served from the site root; nothing loads from our servers. Absolute
+  # URLs: the Sapper export crawls same-origin paths and turns them into directories, which
+  # then breaks Upptime's copy of assets/ (EISDIR).
+  themeUrl: https://status.quividi.com/quiotto.css
+  logoUrl: https://status.quividi.com/quividi_white.png
   logoHref: /
   hideNavTitle: true
-  favicon: /favicon.png
+  favicon: https://status.quividi.com/favicon.png
   name: Quividi Status
   introTitle: "Quividi service status"
   introMessage: Current availability of VidiCenter, Quiotto, the API, box uploads and the MCP server, and our updates during incidents and maintenance.
