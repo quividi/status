@@ -25,9 +25,14 @@ assignees:
   - jgb
 
 status-website:
-  # PoC on quividi.github.io/status; for status.quividi.com, replace baseUrl with
-  # `cname: status.quividi.com` and add a CNAME status -> quividi.github.io in OVH.
-  baseUrl: /status
+  # Needs the OVH record: status CNAME quividi.github.io.
+  cname: status.quividi.com
+  # Everything below assets/ is served from the site root; nothing loads from our servers.
+  themeUrl: /quiotto.css
+  logoUrl: /quividi_white.png
+  logoHref: /
+  hideNavTitle: true
+  favicon: /favicon.png
   name: Quividi Status
   introTitle: "Quividi service status"
   introMessage: Current availability of VidiCenter, Quiotto, the API, box uploads and the MCP server, and our updates during incidents and maintenance.

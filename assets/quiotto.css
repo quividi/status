@@ -1,0 +1,137 @@
+/* Quiotto look for the Upptime status page: tokens from vidiflow.css (VidiCenter repo).
+   Replaces the built-in theme (themeUrl), so every Upptime variable is set here.
+   Nav rules use !important: Svelte's scoped classes outrank any selector we can write. */
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400 500;
+  font-display: swap;
+  src: url('fonts/open-sans-latin-ext.woff2') format('woff2');
+  unicode-range: U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+}
+
+@font-face {
+  font-family: 'Open Sans';
+  font-style: normal;
+  font-weight: 400 500;
+  font-display: swap;
+  src: url('fonts/open-sans-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+  color-scheme: light;
+
+  --q-indigo-900: #15143A;
+  --q-indigo-700: #282860;
+  --q-indigo-600: #2F2C6E;
+  --q-indigo-300: #8884C4;
+  --q-blue-violet: #5A57C9;
+  --q-grad-violet: linear-gradient(90deg, var(--q-blue-violet) 0%, #8253A8 100%);
+  --q-bg-subtle: #EFEFF6;
+  --q-border: #E7E6F1;
+  --q-fg-1: #1B1A33;
+  --q-fg-3: #6E6C8A;
+  --q-on-dark: #ECEBF5;
+  --q-on-dark-2: #B9B7D6;
+  --q-positive: #2E9B6B;
+  --q-negative: #D4515F;
+  --q-negative-bg: #FBEAEC;
+  --q-warning: #D9882F;
+  --q-r-sm: 6px;
+  --q-r-md: 10px;
+  --q-shadow-xs: 0 1px 2px rgba(27, 26, 51, .06);
+
+  --body-background-color: var(--q-bg-subtle);
+  --body-text-color: var(--q-fg-1);
+  --card-background-color: #FFFFFF;
+  --card-border-color: var(--q-border);
+  --nav-background-color: var(--q-indigo-900);
+  --nav-border-bottom-color: var(--q-indigo-900);
+  --nav-current-border-bottom-color: var(--q-indigo-300);
+  --up-border-left-color: var(--q-positive);
+  --down-border-left-color: var(--q-negative);
+  --down-background-color: var(--q-negative-bg);
+  --degraded-border-left-color: var(--q-warning);
+  --tag-color: #FFFFFF;
+  --tag-up-background-color: var(--q-positive);
+  --tag-down-background-color: var(--q-negative);
+  --tag-degraded-background-color: var(--q-warning);
+  --change-background-color: var(--q-warning);
+  --error-button-border-color: var(--q-indigo-700);
+  --error-button-background-color: var(--q-indigo-600);
+  --error-button-color: #FFFFFF;
+  --submit-button-border-color: var(--q-indigo-700);
+  --submit-button-background-color: var(--q-indigo-600);
+  --submit-button-color: #FFFFFF;
+  --graph-opacity: 1;
+  --graph-filter: none;
+}
+
+body {
+  font-family: 'Open Sans', system-ui, -apple-system, sans-serif;
+}
+
+h1, h2, h3, h4 {
+  font-weight: 500;
+}
+
+h3 {
+  color: var(--q-fg-3);
+  opacity: 1;
+}
+
+article {
+  border-radius: var(--q-r-md);
+  box-shadow: var(--q-shadow-xs);
+}
+
+article.up, article.down, article.degraded {
+  border-left-width: 3px;
+}
+
+.tag {
+  border-radius: var(--q-r-sm);
+  font-weight: 500;
+}
+
+nav {
+  color: var(--q-on-dark);
+}
+
+nav a {
+  color: var(--q-on-dark-2) !important;
+  padding: 1.25rem 1.25rem !important;
+}
+
+nav a[aria-current], nav a:hover {
+  color: var(--q-on-dark) !important;
+}
+
+nav .logo {
+  padding: 0.75rem 0 !important;
+  margin-right: 1rem !important;
+}
+
+nav .logo img {
+  height: 28px !important;
+  margin-right: 0.75rem !important;
+  border-radius: 0 !important;
+}
+
+/* hideNavTitle drops the page name; show the product word as Quiotto's lockup does */
+nav .logo::after {
+  content: "Status";
+  font-weight: 500;
+  font-size: 1.15rem;
+  background: var(--q-grad-violet);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: brightness(1.6);
+}
+
+footer {
+  color: var(--q-fg-3);
+}
