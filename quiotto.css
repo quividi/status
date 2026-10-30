@@ -87,9 +87,21 @@ html article {
   box-shadow: var(--q-shadow-xs);
 }
 
-/* response-time graph Upptime sets inline (style="--background: url(...)") on each card */
+/* No response times anywhere: the graph Upptime sets inline on each card
+   (style="--background: url(...)") and the chart on the history pages. */
 section.live-status article {
   --background: none !important;
+}
+
+main section:has(canvas) {
+  display: none;
+}
+
+/* The 24h/7d/30d/1y/all selector and the uptime line it drives; the 90-day
+   bars (uptime-bars.js) carry the uptime figure instead. */
+.f > form.r,
+section.live-status article > div:not(.q-bars) {
+  display: none;
 }
 
 /* 90-day availability bars (uptime-bars.js); above Upptime's full-card link overlay

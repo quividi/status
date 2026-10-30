@@ -6,6 +6,7 @@
   const SUMMARY_URL = "https://raw.githubusercontent.com/quividi/status/master/history/summary.json";
   const MONITORED_SINCE = "2026-10-30";
   const DAYS = 90;
+  const MINUTES_PER_DAY = 1440;
 
   const utcDay = (daysAgo) => {
     const d = new Date();
@@ -26,12 +27,16 @@
     row.className = "q-bars-row";
 
     let daysWithDowntime = 0;
+    let monitoredDays = 0;
+    let minutesDown = 0;
     for (const day of days) {
       const bar = document.createElement("span");
       if (day < MONITORED_SINCE) {
         bar.className = "q-bar q-bar-none";
         bar.title = `${day}: no data`;
       } else {
+        monitoredDays++;
+        minutesDown += down[day] || 0;
         let [state, label] = barState(down[day] || 0);
         // summary.json lags the live status by a few minutes
         if (day === today && state === "up" && site.status !== "up") {
@@ -43,12 +48,14 @@
       }
       row.appendChild(bar);
     }
+    // Upptime's own uptime line is hidden (quiotto.css), so this is the only figure on the card
+    const uptime = (100 - (minutesDown / (monitoredDays * MINUTES_PER_DAY)) * 100).toFixed(2);
     row.setAttribute("role", "img");
-    row.setAttribute("aria-label", `${site.name}: ${daysWithDowntime} of the last ${DAYS} days with downtime`);
+    row.setAttribute("aria-label", `${site.name}: ${uptime}% uptime, ${daysWithDowntime} of the last ${DAYS} days with downtime`);
 
     const legend = document.createElement("div");
     legend.className = "q-bars-legend";
-    legend.innerHTML = `<span>${DAYS} days ago</span><span>Today</span>`;
+    legend.innerHTML = `<span>${DAYS} days ago</span><span>${uptime}% uptime</span><span>Today</span>`;
 
     const wrap = document.createElement("div");
     wrap.className = "q-bars";
