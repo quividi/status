@@ -72,6 +72,8 @@
       const slug = link.getAttribute("href").split("/").pop();
       const site = summary.find((s) => s.slug === slug);
       if (!site) continue;
+      // cards don't open the per-component history page: an <a> without href is plain text
+      link.removeAttribute("href");
       days ??= Array.from({ length: DAYS }, (_, i) => utcDay(DAYS - 1 - i));
       article.appendChild(render(site, days));
     }
