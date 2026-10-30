@@ -39,16 +39,19 @@ status-website:
   logoUrl: https://status.quividi.com/quividi_white.png
   logoHref: /
   hideNavTitle: true
-  favicon: https://status.quividi.com/favicon.png
+  favicon: https://status.quividi.com/icons/vidicenter.ico
   name: Quividi Status
   introTitle: "Quividi service status"
-  introMessage: Current availability of VidiCenter, Quiotto, the API, box uploads and the MCP server, and our updates during incidents and maintenance.
+  introMessage: Current availability of VidiCenter, the VidiReports API, the Cloud API, Quiotto and the MCP server, and our updates during incidents and maintenance.
   navbar:
     - title: Status
       href: /
     - title: VidiCenter
       href: https://vidicenter.quividi.com/
+      target: _blank
     - title: Quiotto
       href: https://quiotto.quividi.com/
+      target: _blank
     - title: quividi.com
       href: https://www.quividi.com/
+      target: _blank
