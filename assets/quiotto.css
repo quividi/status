@@ -100,13 +100,15 @@ nav {
   color: var(--q-on-dark);
 }
 
+/* Upptime's nav is weight 300, too thin on the dark bar */
 nav a {
-  color: var(--q-on-dark-2) !important;
-  padding: 1.25rem 1.25rem !important;
+  color: var(--q-on-dark) !important;
+  font-weight: 500;
+  padding: 1.25rem 1rem !important;
 }
 
-nav a[aria-current], nav a:hover {
-  color: var(--q-on-dark) !important;
+nav a:hover {
+  color: #FFFFFF !important;
 }
 
 nav .logo {

@@ -6,18 +6,23 @@ repo: status
 sites:
   - name: VidiCenter
     url: https://vidicenter.quividi.com/healthz/
-  - name: Quiotto
-    url: https://quiotto.quividi.com/login/
-  - name: API
-    url: https://vidicenter.quividi.com/api/v1/whoami/
-    expectedStatusCodes:
-      - 401
-  - name: Box uploads
+    icon: https://status.quividi.com/icons/vidicenter.ico
+  - name: VidiReports API
     url: https://api.quividi.com/v1/upload
+    icon: https://status.quividi.com/icons/vidicenter.ico
     expectedStatusCodes:
       - 405
+  - name: Cloud API
+    url: https://vidicenter.quividi.com/api/v1/whoami/
+    icon: https://status.quividi.com/icons/vidicenter.ico
+    expectedStatusCodes:
+      - 401
+  - name: Quiotto
+    url: https://quiotto.quividi.com/login/
+    icon: https://status.quividi.com/icons/quiotto.ico
   - name: MCP server
     url: https://mcp.quividi.com/mcp
+    icon: https://status.quividi.com/icons/quiotto.ico
     expectedStatusCodes:
       - 401
 
@@ -41,5 +46,9 @@ status-website:
   navbar:
     - title: Status
       href: /
+    - title: VidiCenter
+      href: https://vidicenter.quividi.com/
+    - title: Quiotto
+      href: https://quiotto.quividi.com/
     - title: quividi.com
       href: https://www.quividi.com/
