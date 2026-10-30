@@ -7,22 +7,27 @@ sites:
   - name: VidiCenter
     url: https://vidicenter.quividi.com/healthz/
     icon: https://status.quividi.com/icons/vidicenter.ico
+    showAverageResponseTime: false
   - name: VidiReports API
     url: https://api.quividi.com/v1/upload
     icon: https://status.quividi.com/icons/vidicenter.ico
+    showAverageResponseTime: false
     expectedStatusCodes:
       - 405
   - name: Cloud API
     url: https://vidicenter.quividi.com/api/v1/whoami/
     icon: https://status.quividi.com/icons/vidicenter.ico
+    showAverageResponseTime: false
     expectedStatusCodes:
       - 401
   - name: Quiotto
     url: https://quiotto.quividi.com/login/
     icon: https://status.quividi.com/icons/quiotto.ico
+    showAverageResponseTime: false
   - name: MCP server
     url: https://mcp.quividi.com/mcp
     icon: https://status.quividi.com/icons/quiotto.ico
+    showAverageResponseTime: false
     expectedStatusCodes:
       - 401
 
@@ -33,13 +38,16 @@ status-website:
   # Needs the OVH record: status CNAME quividi.github.io.
   cname: status.quividi.com
   # Files from assets/, served from the site root; nothing loads from our servers. Absolute
-  # URLs: the Sapper export crawls same-origin paths and turns them into directories, which
-  # then breaks Upptime's copy of assets/ (EISDIR).
+  # URLs: the Sapper export crawls same-origin paths into directories, and uptime-monitor's
+  # later copy of assets/ into the export then fails (EISDIR).
   themeUrl: https://status.quividi.com/quiotto.css
   logoUrl: https://status.quividi.com/quividi_white.png
   logoHref: /
   hideNavTitle: true
   favicon: https://status.quividi.com/icons/vidicenter.ico
+  scripts:
+    - src: https://status.quividi.com/uptime-bars.js
+      async: true
   name: Quividi Status
   introTitle: "Quividi service status"
   introMessage: Current availability of VidiCenter, the VidiReports API, the Cloud API, Quiotto and the MCP server, and our updates during incidents and maintenance.
