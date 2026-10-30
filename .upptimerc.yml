@@ -1,31 +1,38 @@
-# Change these first
-owner: upptime # Your GitHub organization or username, where this repository lives
-repo: upptime # The name of this repository
+owner: quividi
+repo: status
 
+# Only VidiCenter's /healthz/ checks the database and Redis; the other probes
+# only prove the app answers (a 401/405 from Django or uvicorn, not nginx).
 sites:
-  - name: Google
-    url: https://www.google.com
-  - name: Wikipedia
-    url: https://en.wikipedia.org
-  - name: Hacker News
-    url: https://news.ycombinator.com
-  - name: Secret Site
-    url: $SECRET_SITE
+  - name: VidiCenter
+    url: https://vidicenter.quividi.com/healthz/
+  - name: Quiotto
+    url: https://quiotto.quividi.com/login/
+  - name: API
+    url: https://vidicenter.quividi.com/api/v1/whoami/
+    expectedStatusCodes:
+      - 401
+  - name: Box uploads
+    url: https://api.quividi.com/v1/upload
+    expectedStatusCodes:
+      - 405
+  - name: MCP server
+    url: https://mcp.quividi.com/mcp
+    expectedStatusCodes:
+      - 401
+
+assignees:
+  - jgb
 
 status-website:
-  # Add your custom domain name, or remove the `cname` line if you don't have a domain
-  # Uncomment the `baseUrl` line if you don't have a custom domain and add your repo name there
-  cname: demo.upptime.js.org
-  # baseUrl: /your-repo-name
-  logoUrl: https://raw.githubusercontent.com/upptime/upptime.js.org/master/static/img/icon.svg
-  name: Upptime
-  introTitle: "**Upptime** is the open-source uptime monitor and status page, powered entirely by GitHub."
-  introMessage: This is a sample status page which uses **real-time** data from our [GitHub repository](https://github.com/upptime/upptime). No server required — just GitHub Actions, Issues, and Pages. [**Get your own for free**](https://github.com/upptime/upptime)
+  # PoC on quividi.github.io/status; for status.quividi.com, replace baseUrl with
+  # `cname: status.quividi.com` and add a CNAME status -> quividi.github.io in OVH.
+  baseUrl: /status
+  name: Quividi Status
+  introTitle: "Quividi service status"
+  introMessage: Current availability of VidiCenter, Quiotto, the API, box uploads and the MCP server, and our updates during incidents and maintenance.
   navbar:
     - title: Status
       href: /
-    - title: GitHub
-      href: https://github.com/$OWNER/$REPO
-
-# Upptime also supports notifications, assigning issues, and more
-# See https://upptime.js.org/docs/configuration
+    - title: quividi.com
+      href: https://www.quividi.com/
