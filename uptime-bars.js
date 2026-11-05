@@ -51,7 +51,7 @@
       bar.setAttribute("height", "100%");
       bar.setAttribute("rx", RADIUS);
       const title = document.createElementNS(SVG_NS, "title");
-      title.textContent = `${day}: ${label}`;
+      title.textContent = `${day.split("-").reverse().join("/")}: ${label}`;
       bar.appendChild(title);
       row.appendChild(bar);
     }
