@@ -49,6 +49,9 @@ status-website:
     - src: https://status.quividi.com/uptime-bars.js
       async: true
   name: Quividi Status
+  # Upptime formats every date with toLocaleString(locale): en-GB = dd/mm/yyyy, 24h.
+  i18n:
+    locale: en-GB
   introMessage: Current availability of VidiCenter, the VidiReports API, the Cloud API, Quiotto and the MCP server, and our updates during incidents and maintenance.
   navbar:
     - title: Status
