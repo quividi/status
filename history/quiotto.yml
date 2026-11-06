@@ -1,7 +1,7 @@
 url: https://quiotto.quividi.com/login/
-status: up
-code: 200
-responseTime: 638
-lastUpdated: 2026-11-05T23:09:14.694Z
+status: down
+code: 502
+responseTime: 3278
+lastUpdated: 2026-11-06T14:54:18.144Z
 startTime: 2026-10-30T10:46:21.677Z
 generator: Upptime <https://github.com/upptime/upptime>
