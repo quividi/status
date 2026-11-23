@@ -1,7 +1,7 @@
 url: https://vidicenter.quividi.com/api/v1/whoami/
-status: up
-code: 401
-responseTime: 591
-lastUpdated: 2026-11-23T17:18:11.570Z
+status: down
+code: 502
+responseTime: 592
+lastUpdated: 2026-11-23T20:22:54.569Z
 startTime: 2026-10-30T11:10:43.874Z
 generator: Upptime <https://github.com/upptime/upptime>
