@@ -1,7 +1,7 @@
-url: https://quiotto.quividi.com/login/
+url: https://quiotto.quividi.com/healthz/
 status: up
 code: 200
-responseTime: 683
-lastUpdated: 2026-11-22T23:09:33.668Z
+responseTime: 1161
+lastUpdated: 2026-11-23T17:18:12.753Z
 startTime: 2026-10-30T10:46:21.677Z
 generator: Upptime <https://github.com/upptime/upptime>
