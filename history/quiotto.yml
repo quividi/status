@@ -1,7 +1,7 @@
 url: https://quiotto.quividi.com/healthz/
-status: down
-code: 503
-responseTime: 411
-lastUpdated: 2026-11-23T20:23:12.445Z
+status: up
+code: 200
+responseTime: 594
+lastUpdated: 2026-11-23T20:39:20.793Z
 startTime: 2026-10-30T10:46:21.677Z
 generator: Upptime <https://github.com/upptime/upptime>
