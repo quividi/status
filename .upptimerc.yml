@@ -1,19 +1,17 @@
 owner: quividi
 repo: status
 
-# Only VidiCenter's /healthz/ checks the database and Redis; the other probes
-# only prove the app answers (a 401/405 from Django or uvicorn, not nginx).
+# /healthz/ answers 200 only when the host reaches the database and Redis.
+# Cloud API shares VidiCenter's process; its 401 checks the API routing.
 sites:
   - name: VidiCenter
     url: https://vidicenter.quividi.com/healthz/
     icon: https://status.quividi.com/icons/vidicenter.ico
     showAverageResponseTime: false
   - name: VidiReports API
-    url: https://api.quividi.com/v1/upload
+    url: https://api.quividi.com/healthz/
     icon: https://status.quividi.com/icons/vidicenter.ico
     showAverageResponseTime: false
-    expectedStatusCodes:
-      - 405
   - name: Cloud API
     url: https://vidicenter.quividi.com/api/v1/whoami/
     icon: https://status.quividi.com/icons/vidicenter.ico
@@ -21,15 +19,13 @@ sites:
     expectedStatusCodes:
       - 401
   - name: Quiotto
-    url: https://quiotto.quividi.com/login/
+    url: https://quiotto.quividi.com/healthz/
     icon: https://status.quividi.com/icons/quiotto.ico
     showAverageResponseTime: false
   - name: MCP server
-    url: https://mcp.quividi.com/mcp
+    url: https://mcp.quividi.com/healthz/
     icon: https://status.quividi.com/icons/quiotto.ico
     showAverageResponseTime: false
-    expectedStatusCodes:
-      - 401
 
 assignees:
   - jgb
