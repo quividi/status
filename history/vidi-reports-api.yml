@@ -1,7 +1,7 @@
-url: https://api.quividi.com/v1/upload
+url: https://api.quividi.com/healthz/
 status: up
-code: 405
-responseTime: 994
-lastUpdated: 2026-11-22T23:09:32.326Z
+code: 200
+responseTime: 876
+lastUpdated: 2026-11-23T17:18:10.957Z
 startTime: 2026-10-30T11:10:43.133Z
 generator: Upptime <https://github.com/upptime/upptime>
